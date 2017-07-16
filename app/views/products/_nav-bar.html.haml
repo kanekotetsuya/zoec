@@ -1,5 +1,5 @@
 .nav__bar
-  MIRROR-TOWN
+  #site_title ZoeC
   - if user_signed_in?
     = link_to 'ログアウト', destroy_user_session_path, class: "logout", method: :delete
     = link_to '登録内容の編集', edit_user_path(current_user), class: "user-edit"
