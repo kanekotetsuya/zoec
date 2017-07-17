@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: zoec_production
-  username: zoec
-  password: <%= ENV['REZOZO_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
