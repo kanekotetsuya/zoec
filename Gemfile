@@ -71,3 +71,4 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'carrierwave'
+gem 'fog'
