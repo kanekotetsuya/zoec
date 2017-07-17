@@ -1,0 +1,11 @@
+.nav__bar
+  ZoeC
+  - if user_signed_in?
+    = link_to 'ログアウト', destroy_user_session_path, class: "logout", method: :delete
+    = link_to '登録内容の編集', edit_user_path(current_user), class: "user-edit"
+    - if true #(current_user.authority == 1 )
+      = link_to '商品管理', product_path(current_user), class: "product-edit"
+      = link_to '権限管理', user_path(current_user), class: "admin-user-edit"
+  - else
+    = link_to '新規登録', new_user_registration_path, class: "login"
+    = link_to 'ログイン', new_user_session_path, class: "logout"
