@@ -1,0 +1,15 @@
+/ nav-bar 挿入
+.admin-page
+  .admin-page__outer
+    .admin-page__prouct-title 権限編集
+    .admin-page__inner--wrapper
+      .user-search_field
+        = form_for @user, url: { controller: :users, action: :update}, method: :put do |f|
+          .admin_user_field_wrapper
+            = f.text_field :name, class: "input_admin_user", placeholder: "  ユーザー 検索"
+          = f.submit "保 存", class: 'admin-edit-btn'
+      .user-list_field
+        .user-list_field__search-result
+          #search-result 検索結果
+        .user-list_field__add-result
+          #add-result 追加または削除

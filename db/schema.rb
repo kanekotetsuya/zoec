@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717110505) do
+ActiveRecord::Schema.define(version: 20170717113333) do
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20170717110505) do
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.string "product_code", null: false
+    t.string "product_category", null: false
+    t.integer "price", null: false
+    t.text "description"
+    t.text "image", null: false
+    t.integer "count", null: false
   end
 
   create_table "products_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
