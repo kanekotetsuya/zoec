@@ -1,4 +1,10 @@
-
+/*
+ *= require_tree .
+ *= require_self
+ */
 
 @import "./reset";
-@import "./products";
+@import "./index";
+@import "./user";
+@import "./edit-product";
+@import "./show-product";
