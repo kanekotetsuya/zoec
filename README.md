@@ -1,24 +1,63 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| column       | type        | options                      |
+|:------------:|:-----------:|:----------------------------:|
+| name         | string      | null: false                  |
+| kana_name    | string      | null: false                  |
+| email        | string      | null: false, unique: true    |
+| postal_code  | integer     | null: false                  |
+| address1     | string      | null: false                  |
+| address2     | string      | null: false                  |
+| phone        | integer     | null: false, unique: true    |
+| password     | string      | null: false                  |
+| authority    | integer     | null: false                  |
+#### authority has customer,product_admin,master_admin
+#### authority_rank 0<10<20<30<40<50 ??
 
-* Ruby version
+### Association
+has_many :orders  
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## products table
 
-* Database initialization
+| column             | type        | options                      |
+|:------------------:|:-----------:|:----------------------------:|
+| name               | string      | null: false, unique: true    |
+| product_code       | string      | null: false, unique: true    |
+| product_category   | string      | null: false                  |
+| price              | integer     | null: false                  |
+| description        | text        |                              |
+| image              | text        | null: false                  |
+| count              | integer     | null: false                  |
 
-* How to run the test suite
+### Association
+has_many :orders, through: :products_orders  
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## orders table
+
+| column       | type        | options                                     |
+|:------------:|:-----------:|:-------------------------------------------:|
+| user_id      | integer     | t.references :user, foreign_key: true       |
+
+### Association
+belongs_to :user  
+has_many :products, through: :products_orders  
+
+
+
+## products_orders table
+
+| column       | type        | options                                     |
+|:------------:|:-----------:|:-------------------------------------------:|
+| product_id   | string      | t.references :product, foreign_key: true    |
+| order_id     | string      | t.references :order, foreign_key: true      |
+
+### Association
+belongs_to :order  
+belongs_to :product  
+
