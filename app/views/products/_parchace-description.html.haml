@@ -1,0 +1,19 @@
+.description__contents__delivery-alert
+  %p
+    この商品は、
+    %strong 最短明日の午前中
+    までに届けるつもりでいます！
+.description__contents__product-name
+  商品名：
+  = @product.name
+.description__contents__product-detail
+  %p 商品説明
+  = @product.description
+  %p 商品No：#{ @product.product_code }
+  %p カテゴリー：#{ @product.product_category }
+  %p 原産国： アレフガルド
+  %p 残り在庫数：#{ @product.count }
+.description__contents__parchace-button
+  .tmp-price #{ @product.price } 円（税込）
+  .tmp-button
+    %p この商品を購入する

@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 
   def index
-    @campain_products = Product.where(price: 1900).limit(6)
-    @recommend_products = Product.where(price: 980).limit(6)
+    @campain_products = Product.where(price: 1900).order("RAND()").limit(6)
+    @recommend_products = Product.where(price: 980).order("RAND()").limit(6)
   end
 
   def edit
@@ -12,10 +12,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(new_product_params)
     if @product.save
-      redirect_to product_path(current_user) , notice: "商品を登録しました。"
+      redirect_to edit_product_path(current_user) , notice: "商品を登録しました。"
     else
       flash.now[:alert] = "商品が登録できませんでした。"
-      render :show
+      render :edit
     end
   end
 
