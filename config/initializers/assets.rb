@@ -15,3 +15,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( slick.min.js )
 Rails.application.config.assets.precompile += %w( slick.css )
 Rails.application.config.assets.precompile += %w( ajax-loader.gif )
+Rails.application.config.assets.precompile += %w( jquery.balloon.js )
+
+
+
