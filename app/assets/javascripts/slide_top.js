@@ -1,5 +1,6 @@
 $(function(){
 
+//Top-Page
   $('#slider').slick({
     infinite: true,
     autoplay: true,      // 自動で切り替える

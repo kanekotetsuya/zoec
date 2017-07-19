@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     @recommend_products = Product.where(price: 980).limit(6)
   end
 
-  def show
+  def edit
     @product = Product.new
   end
 
