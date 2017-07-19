@@ -4,7 +4,7 @@ $(function(){
   $('#detail-slider').slick({
     infinite: true,
     autoplay: true,      // 自動で切り替える
-    autoplaySpeed: 100, // 待機する時間
+    autoplaySpeed: 3000, // 待機する時間
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,

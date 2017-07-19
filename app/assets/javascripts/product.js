@@ -1,7 +1,7 @@
 $(window).bind("load", function(){
 
   // URLにhogehogeが含まれていたら実行
-  if(document.URL.match(/\/products\/\d+/)) {
+  if(document.URL.match(/\products\/\d+\/edit/)) {
 
     $(function(){
 

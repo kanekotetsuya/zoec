@@ -51,7 +51,7 @@
             .center__contents_campain__top
               - @recommend_products.each do |product|
                 .center__contents_campain__top-product
-                  = image_tag product.image
+                  = link_to image_tag(product.image), detail_product_path(product)
                   %p.center__contents_campain_product-title
                     = product.name
                   %p.center__contents_campain_product-price
