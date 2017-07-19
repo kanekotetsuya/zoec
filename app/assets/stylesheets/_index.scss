@@ -26,7 +26,7 @@
 }
 
 .nav__bar {
-  background-color: black;
+  background-color: #323232;
   width: 100vw;
   height: 50px;
   .login,
@@ -162,7 +162,7 @@
 .right__contents_sale .roto-caption {
   font-size:    130%;
   text-align:     center;
-  color:      #fff;
+  color: #fff;
 }
 .right__contents_sale .roto-mask {
   width:      100%;
@@ -177,5 +177,5 @@
 }
 .right__contents_sale:hover .roto-mask {
   opacity:    1;  /* マスクを表示する */
-  padding-top:    80px; /* ホバーで下にずらす */
+  padding-top:    130px; /* ホバーで下にずらす */
 }

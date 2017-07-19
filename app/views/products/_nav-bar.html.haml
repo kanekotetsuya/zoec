@@ -8,7 +8,7 @@
       = link_to '', edit_user_path(current_user), class: "fa fa-address-card-o"
     - if true #(current_user.authority == 1 )
       .product-edit.popup
-        = link_to '', product_path(current_user), class: "fa fa-briefcase"
+        = link_to '', edit_product_path(current_user), class: "fa fa-briefcase"
       .admin-user-edit.popup
         = link_to '', user_path(current_user), class: "fa fa-users"
   - else
