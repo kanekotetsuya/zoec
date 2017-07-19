@@ -1,5 +1,6 @@
 .nav__bar
-  .site-title ZoeC
+  .site-title
+    = link_to 'ZoeC', root_path, class: "site-title"
   - if user_signed_in?
     .logout.popup
       = link_to '', destroy_user_session_path, class: "fa fa-times", method: :delete
