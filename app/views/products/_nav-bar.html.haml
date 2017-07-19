@@ -1,11 +1,17 @@
 .nav__bar
-  ZoeC
+  .site-title ZoeC
   - if user_signed_in?
-    = link_to 'ログアウト', destroy_user_session_path, class: "logout", method: :delete
-    = link_to '登録内容の編集', edit_user_path(current_user), class: "user-edit"
+    .logout.popup
+      = link_to '', destroy_user_session_path, class: "fa fa-times", method: :delete
+    .user-edit.popup
+      = link_to '', edit_user_path(current_user), class: "fa fa-address-card-o"
     - if true #(current_user.authority == 1 )
-      = link_to '商品管理', product_path(current_user), class: "product-edit"
-      = link_to '権限管理', user_path(current_user), class: "admin-user-edit"
+      .product-edit.popup
+        = link_to '', product_path(current_user), class: "fa fa-briefcase"
+      .admin-user-edit.popup
+        = link_to '', user_path(current_user), class: "fa fa-users"
   - else
-    = link_to '新規登録', new_user_registration_path, class: "login"
-    = link_to 'ログイン', new_user_session_path, class: "logout"
+    .new-user.popup
+      = link_to '', new_user_registration_path, class: "fa fa-user-plus"
+    .login.popup
+      = link_to '', new_user_session_path, class: "fa fa-sign-in"
