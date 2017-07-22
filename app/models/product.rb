@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :orders, through: :products_orders
+  belongs_to :order
 
   validates :product_code, presence: true, uniqueness: true
 
