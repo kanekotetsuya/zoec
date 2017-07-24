@@ -11,8 +11,8 @@
           .order-detail__product_code #{product.product_code}
           .order-detail__prduct_price ¥ #{product.price}
           .order-detail__attention 返品・交換対象外商品
-  .order-detail__parchace_contents
-    .order-detail__parchace_contents__summary
+  .order-detail__purchase_contents
+    .order-detail__purchase_contents__summary
       .order-detail__summary
         %table
           %tr
@@ -29,10 +29,6 @@
           %tr
             %td.title 合計金額
             %td.price_summary ¥ #{@price}
-
-      / = @cart
-      / = @price
-      / = @quantity
     .order-detail__purchase_contents__description
       = link_to root_path do
         = submit_tag "買い物を続ける", class: "purchase_button"
