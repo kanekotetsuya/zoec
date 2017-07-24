@@ -14,14 +14,12 @@ class OrdersController < ApplicationController
 
   def add_to_cart
     product = Product.find(params[:id])
-    test = Product.all
     (session[:cart] ||= []) << product.id
     session[:price] ||= 0
     session[:price] += product.price
     session[:quantity] ||= 0
     session[:quantity] += 1
     flash.now[:notice] = "#{product.name} をカートに保存しました"
-    binding.pry
     redirect_to action: 'index'
   end
 
@@ -30,17 +28,20 @@ class OrdersController < ApplicationController
 
     if max.nil?
       max = 0
-      cart_id = ( max + 1 )
     end
 
-    @order = Order.new(cart_params)
+    cart_id = ( max + 1 )
+
+
+    @order = Order.new(cart_params(cart_id))
 
     if @order.save
-      flash.now[:notice] = "商品を保存しました。"
-      render :show
+      flash.now[:notice] = "購入完了！"
+      reset_session
+      redirect_to root_path
     else
-      flash.now[:alert] = "商品が保存できませんでした。"
-      render :show
+      flash.now[:alert] = "購入できませんでした・・・"
+      redirect_to root_path
     end
 
   end
@@ -53,8 +54,8 @@ class OrdersController < ApplicationController
 
 
   private
-  def cart_params
-    params.permit(:product_id, :user_id).merge(cart_id: cart_id)
+  def cart_params(cart_id)
+    params.permit(:user_id).merge(product_array: session[:cart], cart_id: cart_id)
   end
 
   def reset_session

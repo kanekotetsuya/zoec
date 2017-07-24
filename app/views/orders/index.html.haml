@@ -33,10 +33,10 @@
       / = @cart
       / = @price
       / = @quantity
-    .order-detail__parchace_contents__description
+    .order-detail__purchase_contents__description
       = link_to root_path do
-        = submit_tag "買い物を続ける", class: "parchace_button"
+        = submit_tag "買い物を続ける", class: "purchase_button"
       = form_tag user_orders_path(current_user), method: "post" do
-        = submit_tag "商品を購入する", class: "parchace_button"
+        = submit_tag "商品を購入する", class: "purchase_button"
   .clearfix
 .footer
