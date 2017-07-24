@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :orders
+    resources :orders do
+      member do
+        get :add_to_cart
+      end
+    end
   end
 
 end

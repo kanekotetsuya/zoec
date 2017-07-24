@@ -38,6 +38,26 @@ $(function(){
   });
 
 
+//user-cart
+  $(".fa-shopping-cart")
+  .mouseover(function() {
+    $(this).showBalloon({
+      contents : "カート",
+      position : "bottom",
+      css: {
+        "color": "#505050",
+        "margin": "0 auto",
+        "font-size": "16px",
+        "padding": "3px"
+      }
+    })
+  })
+  .mouseout(function() {
+    $(this).hideBalloon();
+  });
+
+
+
 //product-edit
   $(".fa-briefcase")
   .mouseover(function() {
