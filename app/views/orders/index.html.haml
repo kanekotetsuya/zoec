@@ -1,16 +1,19 @@
 = render partial: "products/nav-bar"
 .order-detail__contents
   .order-detail__main_contents-wrapper
-    - @products.each do |product|
-      .order-detail__main_contents
-        .order-detail__main_contents_image
-          = link_to image_tag(product.image), detail_product_path(product)
-        .order-detail__main_contents__description
-          .order-detail__product-name #{product.name}
-          .order-detail__product_category #{product.product_category}
-          .order-detail__product_code #{product.product_code}
-          .order-detail__prduct_price ¥ #{product.price}
-          .order-detail__attention 返品・交換対象外商品
+    - if @quantity.zero?
+      .order-detail__main_contents-empty カートに入っている商品はありません
+    - else
+      - @products.each do |product|
+        .order-detail__main_contents
+          .order-detail__main_contents_image
+            = link_to image_tag(product.image), detail_product_path(product)
+          .order-detail__main_contents__description
+            .order-detail__product-name #{product.name}
+            .order-detail__product_category #{product.product_category}
+            .order-detail__product_code #{product.product_code}
+            .order-detail__prduct_price ¥ #{product.price}
+            .order-detail__attention 返品・交換対象外商品
   .order-detail__purchase_contents
     .order-detail__purchase_contents__summary
       .order-detail__summary
