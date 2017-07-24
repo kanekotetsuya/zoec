@@ -105,22 +105,14 @@
   margin-left: 20px;
 }
 
-.tmp-button {
+.add_cart_button {
   width: 200px;
   height: 50px;
+  color: #fff;
   background-color: #505050;
   float: right;
-  & p {
-    color: #fff;
-    text-align: center;
-    line-height: 50px;
-    font-size: 16px;
-  }
   &:hover {
     color: #505050;
-  }
-  & p:hover {
-    color: #505050;
-    background-color: #ccc;
+    background-color: #fff;
   }
 }
