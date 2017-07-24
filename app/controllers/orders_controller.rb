@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
     session[:quantity] += 1
     flash[:notice] = "#{product.name} をカートに保存しました"
     redirect_to action: 'index'
-    binding.pry
 
   end
 
@@ -48,7 +47,6 @@ class OrdersController < ApplicationController
         redirect_to root_path
       end
     end
-    binding.pry
 
   end
 
