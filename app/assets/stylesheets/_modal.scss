@@ -1,0 +1,44 @@
+#modal-content,
+#modal-cart-content
+{
+  width:50%;
+  padding:10px 20px;
+  background:#fff;
+  z-index:2;
+  position: fixed;
+  border-radius: 10px;
+  & p {
+    font-size: 26px;
+    margin: 20px;
+    text-align: center;
+  }
+}
+
+.button-link{
+  width: 150px;
+  height: 50px;
+  text-decoration:none;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size:18px;
+  color: #fff;
+  background: #00a0c8;
+  float: right;
+  border-radius: 10px;
+}
+
+.button-link:hover{
+  cursor:pointer;
+}
+
+#modal-overlay{
+  z-index:1;
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:120%;
+  background-color:rgba(0,0,0,0.5);
+}

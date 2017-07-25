@@ -1,3 +1,6 @@
+- unless session[:quantity] == 0
+  .current-cart-quantity
+    %p #{session[:quantity]}
 .nav__bar
   .site-title
     = link_to 'ZoeC', root_path, class: "site-title"

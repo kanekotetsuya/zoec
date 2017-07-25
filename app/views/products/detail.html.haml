@@ -29,3 +29,7 @@
       .product-detail__contents__item-description
         = render partial: "product-description"
 .footer
+
+/ #modal-cart-content
+/   %p #{@product.name} をカートに保存しました！
+/   = link_to "カートへ", user_orders_path(current_user), class: "button-link"
