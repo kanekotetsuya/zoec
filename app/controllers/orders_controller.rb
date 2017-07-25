@@ -19,16 +19,12 @@ class OrdersController < ApplicationController
     session[:price] += product.price
     session[:quantity] ||= 0
     session[:quantity] += 1
-    flash[:notice] = "#{product.name} をカートに保存しました"
+    
     redirect_to action: 'index'
-
   end
 
   def create
-    if session[:quantity].zero?
-      flash[:alert] = "カートに何も入ってないよ！"
-      redirect_to root_path
-    else
+    unless session[:quantity].zero?
       max = Order.maximum(:cart_id)
 
       if max.nil?
@@ -39,12 +35,7 @@ class OrdersController < ApplicationController
       @order = Order.new(cart_params(cart_id))
 
       if @order.save
-        flash[:notice] = "購入完了！"
         reset_session
-        redirect_to root_path
-      else
-        flash[:alert] = "購入できませんでした・・・"
-        redirect_to root_path
       end
     end
 

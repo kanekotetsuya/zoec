@@ -9,6 +9,21 @@
   cursor: hand;
 }
 
+.current-cart-quantity {
+  position: absolute;
+  top: 5px;
+  right: 195px;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  background-color: red;
+  & p {
+    color: #fff;
+    font-size: 3px;
+    text-align: center;
+  }
+}
+
 .fa {
   color: white;
   text-decoration: none;

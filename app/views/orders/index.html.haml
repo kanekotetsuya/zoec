@@ -36,6 +36,16 @@
       = link_to root_path do
         = submit_tag "買い物を続ける", class: "purchase_button"
       = form_tag user_orders_path(current_user), method: "post" do
-        = submit_tag "商品を購入する", class: "purchase_button"
+        = submit_tag "商品を購入する", class: "purchase_button", id: "modal-open"
   .clearfix
 .footer
+
+
+- if @quantity.zero?
+  #modal-content
+    %p 商品をカートに入れてからでなおしてくるんだな
+    = link_to "Topへ戻る", root_path, id: "modal-close", class: "button-link"
+- else
+  #modal-content
+    %p ご注文ありがとうございました！
+    = link_to "Topへ戻る", root_path, id: "modal-close", class: "button-link"
