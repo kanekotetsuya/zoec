@@ -20,7 +20,12 @@ class ProductsController < ApplicationController
   end
 
   def detail
-    @product = Product.find(params[:id])
+    if user_signed_in?
+      @product = Product.find(params[:id])
+    else
+      redirect_to new_user_session_path
+      flash[:alert] = "ちょっとわけあって先ずはユーザー登録を！"
+    end
   end
 
   private
