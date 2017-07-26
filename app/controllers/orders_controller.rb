@@ -4,22 +4,27 @@ class OrdersController < ApplicationController
     @cart = session[:cart]
     @price = session[:price]
     @quantity = session[:quantity]
-
-    @products = []
-    @cart.each do |product_number|
-      @products << Product.find(product_number)
+    if user_signed_in? && @cart.present?
+      @products = []
+      @cart.each do |product_number|
+        @products << Product.find(product_number)
+      end
     end
 
   end
 
   def add_to_cart
-    product = Product.find(params[:id])
-    (session[:cart] ||= []) << product.id
+    session[:cart] ||= []
     session[:price] ||= 0
-    session[:price] += product.price
     session[:quantity] ||= 0
-    session[:quantity] += 1
-    
+
+    if user_signed_in?
+      product = Product.find(params[:id])
+      session[:cart] << product.id
+      session[:price] += product.price
+      session[:quantity] += 1
+    end
+
     redirect_to action: 'index'
   end
 

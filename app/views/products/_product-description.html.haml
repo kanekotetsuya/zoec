@@ -14,6 +14,6 @@
   %p 原産国： アレフガルド
   %p 残り在庫数：#{ @product.count }
 .description__contents__parchace-button
-  .tmp-price #{ @product.price } 円（税込）
+  .tmp-price #{ @product.price }円 税込
   = form_tag add_to_cart_user_order_path(current_user), method: "get" do
     = submit_tag "カートに入れる", class: "add_cart_button"

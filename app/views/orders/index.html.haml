@@ -1,7 +1,7 @@
 = render partial: "products/nav-bar"
 .order-detail__contents
   .order-detail__main_contents-wrapper
-    - if @quantity.zero?
+    - if @quantity.nil? || @quantity.zero?
       .order-detail__main_contents-empty カートに入っている商品はありません
     - else
       - @products.each do |product|
@@ -41,7 +41,7 @@
 .footer
 
 
-- if @quantity.zero?
+- if @quantity.nil? || @quantity.zero?
   #modal-content
     %p 商品をカートに入れてからでなおしてくるんだな
     = link_to "Topへ戻る", root_path, id: "modal-close", class: "button-link"
